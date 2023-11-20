@@ -1,0 +1,132 @@
+:root {
+    /* COLORS */
+
+    /* Primary */
+    --Orange: hsl(26, 100%, 55%);
+    --Pale-orange: hsl(25, 100%, 94%);
+
+    /* Neutral */
+    --Very-dark-blue: hsl(220, 13%, 13%);
+    --Dark-grayish-blue: hsl(219, 9%, 45%);
+    --Grayish-blue: hsl(220, 14%, 75%);
+    --Light-grayish-blue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    --Black: hsl(0, 0%, 0%);  /*(with 75% opacity for lightbox background)*/
+
+
+    /* Fonts */
+    --ff-base: 'Kumbh Sans', sans-serif;
+    --fw-400: 400;
+    --fw-700: 700;
+
+    /* Step -2: 11.11px → 11.52px */
+    --step--2: clamp(0.6944rem, 0.6854rem + 0.0385vw, 0.72rem);
+    /* Step -1: 13.33px → 14.40px */
+    --step--1: clamp(0.8331rem, 0.8096rem + 0.1005vw, 0.9rem);
+
+    /* Step 0: 16.00px → 18.00px */
+    --step-0: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+
+    /* Step 1: 19.20px → 22.50px */
+    --step-1: clamp(1.2rem, 1.1274rem + 0.3099vw, 1.4063rem);
+    /* Step 2: 23.04px → 28.13px */
+    --step-2: clamp(1.44rem, 1.328rem + 0.4779vw, 1.7581rem);
+    /* Step 3: 27.65px → 35.16px */
+    --step-3: clamp(1.7281rem, 1.5629rem + 0.7052vw, 2.1975rem);
+}
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* General stying */
+
+body {
+    font-family: var(--ff-base);
+    font-weight: var(--fw-400);
+    font-size: var(--step-0);
+    color: var(--Dark-grayish-blue);
+}
+
+.wrapper {
+    outline: 2px dotted pink;
+    outline-offset: -2px;
+    max-width: min(100% - 2rem, 90rem);
+    margin-inline: auto;
+}
+
+.main-wrapper {
+    max-width: min(100%, 63.375rem);
+    margin-inline: auto;
+}
