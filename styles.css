@@ -124,6 +124,10 @@ body {
     color: var(--Dark-grayish-blue);
 }
 
+.overflow {
+    overflow: hidden;
+}
+
 .wrapper {
     /*outline: 2px dotted pink;
     outline-offset: -2px;*/
