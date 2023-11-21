@@ -343,7 +343,7 @@ header {
 }
 
 .commands__count {
-    padding: 0;
+    padding-block: .8rem;
     background-color: var(--Light-grayish-blue);
     border-radius: var(--radius);
     display: grid;
