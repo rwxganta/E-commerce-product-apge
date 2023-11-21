@@ -173,6 +173,45 @@ header {
 
 .menu {
     display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 64%;
+    background-color: var(--White);
+
+    padding: 1.5rem;
+}
+
+.menu ul {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0;
+    display: grid;
+    /*gap: .3rem;*/
+}
+
+.menu li {
+    padding-block: .5em;
+}
+
+.menu a {
+    font-weight: var(--fw-700);
+    text-decoration: none;
+    color: var(--Black);
+}
+
+.menu a:focus,
+.menu a:hover {
+    opacity: .5;
+}
+
+.backdrop {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background-color: var(--Black);
+    opacity: .4;
 }
 
 
