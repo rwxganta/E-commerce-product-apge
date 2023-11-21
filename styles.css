@@ -33,6 +33,9 @@
     --step-2: clamp(1.44rem, 1.328rem + 0.4779vw, 1.7581rem);
     /* Step 3: 27.65px → 35.16px */
     --step-3: clamp(1.7281rem, 1.5629rem + 0.7052vw, 2.1975rem);
+
+    /* Custom pairs */
+    --space-2xs-m: clamp(0.5rem, -0.3171rem + 3.4862vw, 1.6875rem);
 }
 
 
@@ -219,6 +222,59 @@ header {
 
 /* product */
 
+.product {
+    gap: 4rem;
+}
+
+.product img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-slide  {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.product-slide__showoff {
+    /*outline: 2px dotted blue;
+    outline-offset: -2px;*/
+    height: 18rem;
+    background-color: orangered;
+    position: relative;
+    overflow: hidden;
+}
+
+.previus-btn,
+.next-btn {
+    content: '';
+    width: 2.5rem;
+    aspect-ratio: 1;
+    background-color: var(--White);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: absolute;
+}
+
+.previus-btn {
+    top: 50%;
+    left: .5rem;
+    transform: translatey(-50%);
+}
+
+.next-btn {
+    top: 50%;
+    right: .5rem;
+    transform: translatey(-50%);
+}
+
+.product-slide__tiles {
+    display: none;
+}
+
 .product-content__company,
 .product-content__title,
 .priceInfo__newPrice,
@@ -230,7 +286,7 @@ header {
 }
 
 .product-content {
-    padding: 1.25rem 1.5rem;
+    padding: 1.3rem 1.5rem 0;
 }
 
 .product-content__company {
@@ -366,6 +422,41 @@ header {
     .product {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+
+    .product-content {
+        padding: 3.75rem 1.5rem 0;
+    }
+
+    .previus-btn,
+    .next-btn {
+        display: none;
+    }
+
+    .product-slide {
+        padding-inline-start: 1.5rem;
+    }
+
+    .product-slide__showoff {
+        height: 27rem;
+        border-radius: 15px;
+    }
+
+    .product-slide__tiles {
+        margin: 0;
+        padding: 0;
+        display: initial;
+        /*background-color: slateblue;*/
+        height: 5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-2xs-m);
+    }
+
+    .tile {
+        background-color: var(--Orange);
+        border-radius: 12px;
+        overflow: hidden;
     }
 
     .product-content__priceInfo {
