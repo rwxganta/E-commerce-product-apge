@@ -317,3 +317,37 @@ header {
 .commands__add:hover {
     opacity: .7;
 }
+
+
+@media (min-width: 38.75em) {
+    .menu {
+        margin-right: auto;
+        padding: 0;
+        width: unset;
+        position: static;
+        display: initial;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    .logo {
+        margin-right: unset;
+    }
+
+    .close-menu {
+        display: none;
+    }
+
+    .menu ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .menu li {
+        padding: 0;
+    }
+}
