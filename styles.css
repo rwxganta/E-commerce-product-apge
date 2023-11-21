@@ -259,6 +259,12 @@ header {
     color: var(--Black);
 }
 
+.priceInfo__current {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
 .priceInfo__descount {
     padding: .01em .35em;
     color: var(--Orange);
@@ -349,5 +355,28 @@ header {
 
     .menu li {
         padding: 0;
+    }
+}
+
+@media (min-width: 50em) {
+    .product {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product-content__priceInfo {
+        display: block;
+    }
+
+    .priceInfo__newPrice {
+        display: inline-block;
+    }
+
+    .priceInfo__descount {
+        display: inline-block;
+    }
+
+    .product-content__commands {
+        grid-template-columns: 1fr 2fr;
     }
 }
