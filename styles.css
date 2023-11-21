@@ -122,7 +122,8 @@ body {
 .wrapper {
     /*outline: 2px dotted pink;
     outline-offset: -2px;*/
-    max-width: min(100% - 2rem, 90rem);
+    /*max-width: min(100% - 2rem, 90rem);*/
+    max-width: min(100% - 2rem, 80rem);
     margin-inline: auto;
 }
 
