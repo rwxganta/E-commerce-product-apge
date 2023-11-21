@@ -36,6 +36,8 @@
 
     /* Custom pairs */
     --space-2xs-m: clamp(0.5rem, -0.3171rem + 3.4862vw, 1.6875rem);
+    /* Space s: 24px → 50px  - USER IMAGE */
+    --space-image: clamp(1.7rem, 0.3819rem + 4.7706vw, 3.125rem);
 }
 
 
@@ -168,7 +170,7 @@ header {
 }
 
 .user {
-    max-width: 1.5rem;
+    width: var(--space-image);
 }
 
 .menu-btn {
@@ -415,11 +417,22 @@ header {
 
     .menu li {
         padding: 0;
+        font-size: var(--step--1);
+    }
+
+    .menu a {
+        font-weight: var(--fw-400);
+        color: var(--Dark-grayish-blue);
     }
 }
 
 @media (min-width: 50em) {
+    header {
+        border-bottom: 1px solid var(--Light-grayish-blue);
+    }
+
     .product {
+        margin-block: 3.75rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
