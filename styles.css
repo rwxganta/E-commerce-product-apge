@@ -123,7 +123,7 @@ body {
     /*outline: 2px dotted pink;
     outline-offset: -2px;*/
     /*max-width: min(100% - 2rem, 90rem);*/
-    max-width: min(100% - 2rem, 80rem);
+    max-width: min(100% - 2rem, 63rem);
     margin-inline: auto;
 }
 
@@ -132,7 +132,7 @@ body {
 }
 
 .main-wrapper {
-    max-width: min(100%, 63.375rem);
+    max-width: min(100%, 57.5rem);
     margin-inline: auto;
 }
 
@@ -287,18 +287,22 @@ header {
 }
 
 .commands__count {
-    padding: .8rem;
+    padding: 0;
     background-color: var(--Light-grayish-blue);
     border-radius: var(--radius);
-
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.commands__count > * {
+    place-self: stretch;
 }
 
 .count-value {
     text-align: center;
     color: var(--Black);
+    display: grid;
+    place-items: center;
 }
 
 .commands__add {
