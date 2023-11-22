@@ -473,20 +473,21 @@ header {
     }
 
     .tile {
-        background-color: var(--Orange);
+        /*background-color: var(--Orange);*/
         border-radius: 12px;
         cursor: pointer;
         overflow: hidden;
     }
 
-    .tile:focus,
-    .tile:hover {
-        outline: 4px solid var(--Orange);
+    .tile img:hover {
         opacity: .6;
     }
 
     .tile[data-selected=true] {
         outline: 4px solid var(--Orange);
+    }
+
+    .tile[data-selected=true] img {
         opacity: .6;
     }
 
