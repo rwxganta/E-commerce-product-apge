@@ -6,6 +6,7 @@ const tilesArr = document.querySelectorAll('.tile img');
 
 
 const tilesURLArray = [];
+let currentTileMobile = 0;
 let currentTile = document.querySelector("[data-selected='true']");
 
 tilesArr.forEach((node) => {
@@ -34,13 +35,13 @@ function showoffHandle(e) {
 }
 
 function previousBtnHandle() {
-    if (currentTile === 0) return;
-    currentTile -= 1;
-    showoff.setAttribute('src', tilesURLArray[currentTile]);
+    if (currentTileMobile === 0) return;
+    currentTileMobile -= 1;
+    showoff.setAttribute('src', tilesURLArray[currentTileMobile]);
 }
 
 function nextBtnHandle() {
-    if (currentTile === tilesURLArray.length - 1) return;
-    currentTile += 1;
-    showoff.setAttribute('src', tilesURLArray[currentTile]);
+    if (currentTileMobile === tilesURLArray.length - 1) return;
+    currentTileMobile += 1;
+    showoff.setAttribute('src', tilesURLArray[currentTileMobile]);
 }
