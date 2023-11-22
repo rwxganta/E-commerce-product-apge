@@ -1,26 +1,46 @@
-const body = document.body;
-const openMenu = document.querySelector('.js-menu-btn');
-const menu = document.querySelector('.js-menu');
-const closeMenu = document.querySelector('.js-close-menu');
-const backdrop = document.querySelector('.backdrop');
+const showoff = document.querySelector('.js-showoff img');
+const tiles = document.querySelector('.js-tiles');
+const previousBtn = document.querySelector('.js-previous');
+const nextBtn = document.querySelector('.js-next');
+const tilesArr = document.querySelectorAll('.tile img');
 
 
-openMenu.addEventListener('click', openMenuHandle);
-closeMenu.addEventListener('click', closeMenuHandle);
-backdrop.addEventListener('click', closeMenuHandle);
+const tilesURLArray = [];
+let currentTile = document.querySelector("[data-selected='true']");
+
+tilesArr.forEach((node) => {
+    let src = node.attributes.src.textContent;
+    src = `${src.substring(0, 24)}.jpg`;
+    tilesURLArray.push(src);
+});
 
 
 
+tiles.addEventListener('click', showoffHandle);
+previousBtn.addEventListener('click', previousBtnHandle);
+nextBtn.addEventListener('click', nextBtnHandle);
 
-// TODO: Solve resize problem while on mobile-menu open
-function openMenuHandle() {
-    body.classList.toggle('overflow');
-    backdrop.style.display = 'initial';
-    menu.style.display = 'initial';
+
+
+function showoffHandle(e) {
+    const srcAttr = e.target.attributes.src;
+    if (!srcAttr) return;
+    let showoffURL = e.target.attributes.src.textContent;
+    showoffURL = `${showoffURL.substring(0, 24)}.jpg`;
+    showoff.setAttribute('src', showoffURL);
+    currentTile.setAttribute('data-selected', 'false');
+    currentTile = e.target.parentElement;
+    currentTile.setAttribute('data-selected', 'true');
 }
 
-function closeMenuHandle() {
-    body.classList.toggle('overflow');
-    backdrop.style.display = 'none';
-    menu.style.display = 'none';
+function previousBtnHandle() {
+    if (currentTile === 0) return;
+    currentTile -= 1;
+    showoff.setAttribute('src', tilesURLArray[currentTile]);
+}
+
+function nextBtnHandle() {
+    if (currentTile === tilesURLArray.length - 1) return;
+    currentTile += 1;
+    showoff.setAttribute('src', tilesURLArray[currentTile]);
 }
