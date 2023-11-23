@@ -175,6 +175,11 @@ header {
 
 .user {
     width: var(--space-image);
+    border-radius: 50%;
+}
+
+.user:hover {
+    outline: 1px solid var(--Orange);
 }
 
 .menu-btn {
@@ -360,6 +365,10 @@ header {
 
 .commands__count > * {
     place-self: stretch;
+}
+
+.commands__count > *:not(.count-value):hover {
+    opacity: .7;
 }
 
 .count-value {

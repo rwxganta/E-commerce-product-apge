@@ -3,6 +3,9 @@ const tiles = document.querySelector('.js-tiles');
 const previousBtn = document.querySelector('.js-previous');
 const nextBtn = document.querySelector('.js-next');
 const tilesArr = document.querySelectorAll('.tile img');
+const addCountBtn = document.querySelector('.js-addBtn');
+const subtractCountBtn = document.querySelector('.js-subtractBtn');
+const countValue = document.querySelector('.js-countValue');
 
 
 const tilesURLArray = [];
@@ -20,7 +23,8 @@ tilesArr.forEach((node) => {
 tiles.addEventListener('click', showoffHandle);
 previousBtn.addEventListener('click', previousBtnHandle);
 nextBtn.addEventListener('click', nextBtnHandle);
-
+subtractCountBtn.addEventListener('click', subtractBtnHandle);
+addCountBtn.addEventListener('click', addBtnHandle);
 
 
 function showoffHandle(e) {
@@ -44,4 +48,13 @@ function nextBtnHandle() {
     if (currentTileMobile === tilesURLArray.length - 1) return;
     currentTileMobile += 1;
     showoff.setAttribute('src', tilesURLArray[currentTileMobile]);
+}
+
+function subtractBtnHandle() {
+    let value = parseInt(countValue.textContent);
+    countValue.textContent = value === 0 ? 0 : --value;
+}
+
+function addBtnHandle() {
+    countValue.textContent = parseInt(countValue.textContent) + 1;
 }
