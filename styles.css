@@ -124,14 +124,11 @@ body {
     color: var(--Dark-grayish-blue);
 }
 
-.overflow {
+body[data-overflow=true] {
     overflow: hidden;
 }
 
 .wrapper {
-    /*outline: 2px dotted pink;
-    outline-offset: -2px;*/
-    /*max-width: min(100% - 2rem, 90rem);*/
     max-width: min(100% - 2rem, 63rem);
     margin-inline: auto;
 }
@@ -165,11 +162,8 @@ header {
     gap: 1rem;
 }
 
-.logo {
-    margin-right: auto;
-}
-
 .cart {
+    margin-left: auto;
     padding: 0;
 }
 
@@ -183,36 +177,27 @@ header {
 }
 
 .menu-btn {
-    margin-top: .2rem;
+    aspect-ratio: 1;
+    width: 1rem;
+    display: none;
+    background-image: url('data:image/svg+xml,<svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="%2369707D" fill-rule="evenodd"/></svg>');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.menu {
-    display: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 64%;
-    background-color: var(--White);
-    z-index: 20;
-
-    padding: 1.5rem;
+.menu-btn[aria-expanded=true] {
+    background-image: url('data:image/svg+xml,<svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="%2369707D" fill-rule="evenodd"/></svg>');
 }
 
 .menu ul {
-    display: inline-block;
-    margin-top: 2rem;
+    margin: 0;
     padding: 0;
-    display: grid;
-    /*gap: .3rem;*/
-}
-
-.menu li {
-    padding-block: .5em;
+    display: flex;
+    gap: var(--gap, .7rem);
 }
 
 .menu a {
-    font-weight: var(--fw-700);
+    font-weight: var(--fw-400);
     text-decoration: none;
     color: var(--Black);
 }
@@ -222,13 +207,50 @@ header {
     opacity: .5;
 }
 
+@media (max-width: 38em) {
+    .menu-btn {
+        display: block;
+        position: relative;
+        z-index: 9999;
+    }
+
+    .menu {
+        padding-block: 6rem;
+        padding-inline: 1.6rem;
+        display: block;
+        position: fixed;
+        z-index: 1000;
+        inset: 0 35% 0 0;
+        background-color: var(--White);
+        transform: translateX(-100%);
+        transition: transform 200ms ease-out;
+    }
+
+    .menu[data-visible=true] {
+        transform: translateX(0);
+    }
+
+    .menu ul {
+        --gap: 1.3rem;
+        flex-direction: column;
+    }
+
+    .menu a {
+        font-weight: var(--fw-700);
+    }
+}
+
 .backdrop {
     display: none;
     position: fixed;
     inset: 0;
     background-color: var(--Black);
     opacity: .4;
-    z-index: 10;
+    z-index: 100;
+}
+
+.backdrop[data-visible=true] {
+    display: block;
 }
 
 
@@ -252,8 +274,6 @@ header {
 }
 
 .product-slide__showoff {
-    /*outline: 2px dotted blue;
-    outline-offset: -2px;*/
     height: 18rem;
     background-color: orangered;
     position: relative;
@@ -317,7 +337,6 @@ header {
 }
 
 .product-content__priceInfo {
-    /*outline: 2px dotted pink;*/
     display: flex;
     align-items: center;
     gap: .8rem;
@@ -349,7 +368,6 @@ header {
 
 
 .product-content__commands {
-    /*outline: 2px dotted pink;*/
     --radius: 9px;
     display: grid;
     gap: 1rem;
@@ -402,45 +420,6 @@ header {
 }
 
 
-@media (min-width: 38.75em) {
-    .menu {
-        margin-right: auto;
-        padding: 0;
-        width: unset;
-        position: static;
-        display: initial;
-    }
-
-    .menu-btn {
-        display: none;
-    }
-
-    .logo {
-        margin-right: unset;
-    }
-
-    .close-menu {
-        display: none;
-    }
-
-    .menu ul {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 1rem;
-    }
-
-    .menu li {
-        padding: 0;
-        font-size: var(--step--1);
-    }
-
-    .menu a {
-        font-weight: var(--fw-400);
-        color: var(--Dark-grayish-blue);
-    }
-}
-
 @media (min-width: 50em) {
     header {
         border-bottom: 1px solid var(--Light-grayish-blue);
@@ -474,7 +453,6 @@ header {
         margin: 0;
         padding: 0;
         display: initial;
-        /*background-color: slateblue;*/
         height: 5rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -482,7 +460,6 @@ header {
     }
 
     .tile {
-        /*background-color: var(--Orange);*/
         border-radius: 12px;
         cursor: pointer;
         overflow: hidden;

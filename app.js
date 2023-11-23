@@ -1,3 +1,8 @@
+const body = document.body;
+const menuBtn = document.querySelector('.js-menu-btn');
+const menu = document.querySelector('.js-menu');
+const backdrop = document.querySelector('.backdrop');
+
 const showoff = document.querySelector('.js-showoff img');
 const tiles = document.querySelector('.js-tiles');
 const previousBtn = document.querySelector('.js-previous');
@@ -20,12 +25,27 @@ tilesArr.forEach((node) => {
 
 
 
+menuBtn.addEventListener('click', menuHandle);
+backdrop.addEventListener('click', menuHandle);
 tiles.addEventListener('click', showoffHandle);
 previousBtn.addEventListener('click', previousBtnHandle);
 nextBtn.addEventListener('click', nextBtnHandle);
 subtractCountBtn.addEventListener('click', subtractBtnHandle);
 addCountBtn.addEventListener('click', addBtnHandle);
 
+
+
+function menuHandle() {
+    const bodyAttr = body.getAttribute('data-overflow');
+    const menuAttr = menu.getAttribute('data-visible');
+    const btnAttr = menuBtn.getAttribute('aria-expanded');
+    const backdropAttr = backdrop.getAttribute('data-visible');
+
+    body.setAttribute('data-overflow', bodyAttr === 'false' ? 'true' : 'false');
+    menu.setAttribute('data-visible', menuAttr === 'false' ? 'true' : 'false');
+    menuBtn.setAttribute('aria-expanded', btnAttr === 'false' ? 'true' : 'false');
+    backdrop.setAttribute('data-visible', backdropAttr === 'false' ? 'true' : 'false');
+}
 
 function showoffHandle(e) {
     const srcAttr = e.target.attributes.src;
